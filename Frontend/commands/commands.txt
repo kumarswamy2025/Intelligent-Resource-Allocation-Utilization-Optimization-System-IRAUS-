@@ -1,0 +1,7 @@
+install angular cli: npm I -g @angular/cli@versionrequiired
+
+checking versions : ng version or ng --version 
+
+create project : ng new appname
+
+string server: ng serve or  npm start  or ng serve -p 5050 or ng serve -o 
