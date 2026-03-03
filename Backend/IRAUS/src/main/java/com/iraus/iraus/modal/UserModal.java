@@ -40,6 +40,7 @@ public class UserModal {
     private  Boolean HR=false;
     private  Boolean MANAGER=false;
     private  Boolean EMPLOYEE=false;
+    private  Boolean DELIVERY_HEAD=false;
 
 
 
