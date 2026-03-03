@@ -20,11 +20,11 @@ import java.util.List;
 public class UserModal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "UserId")
+
     private Integer userId;  // no need to pass because it will automaticaly assigned
 
 
-    @Column(name = "Username", nullable = false, unique = true, length = 100)
+    @Column(name = "Username", nullable = false, length = 100)
     private String username;
     @Column(name = "Password", nullable = false, length = 255)
     private String password;

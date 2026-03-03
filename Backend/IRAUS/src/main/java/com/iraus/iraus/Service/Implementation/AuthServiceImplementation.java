@@ -9,13 +9,17 @@ import com.iraus.iraus.payload.request.SignUpRequestDTO;
 import com.iraus.iraus.payload.response.AuthResponse;
 import com.iraus.iraus.payload.response.SignUpResponseDTO;
 import com.iraus.iraus.repository.UserModalRepo;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
+@Service
+@RequiredArgsConstructor
 public class AuthServiceImplementation implements AuthService {
 
     @Autowired
@@ -37,7 +41,7 @@ public class AuthServiceImplementation implements AuthService {
 
 //        creating new user
 // here iam using builder patterns to make objects simple
-        UserModal newUser = UserModal.builder().username(signUpDTO.getUsername()).password(passwordEncoder.encode(signUpDTO.getPassword())).email(signUpDTO.getPassword()).phone(signUpDTO.getPhone()).build();
+        UserModal newUser = UserModal.builder().username(signUpDTO.getUsername()).password(passwordEncoder.encode(signUpDTO.getPassword())).email(signUpDTO.getEmail()).phone(signUpDTO.getPhone()).build();
         //        System.out.println("new user Data:"+newUser);
 //        save user
         UserModal savedUser = userRepo.save(newUser);
