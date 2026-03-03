@@ -31,7 +31,7 @@ public class EmployeeSkill {
     @Column(name = "ProficiencyLevel", length = 50)
     private String proficiencyLevel;
 
-    @Column(name = "YearsOfExperience", precision = 4, scale = 2)
+    @Column(name = "YearsOfExperience")
     private Double yearsOfExperience;
 
     @Column(name = "LastUpdated")

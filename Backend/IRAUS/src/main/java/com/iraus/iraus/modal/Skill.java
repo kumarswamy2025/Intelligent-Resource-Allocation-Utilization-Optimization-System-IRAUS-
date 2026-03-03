@@ -28,7 +28,7 @@ public class Skill {
     @Column(name = "IsActive")
     private Boolean isActive = true;
 
-//    @OneToMany(mappedBy = "skill")
+    @OneToMany(mappedBy = "skill")
     private List<EmployeeSkill> employeeSkills;
 
     @OneToMany(mappedBy = "skill")

@@ -36,7 +36,7 @@ public class Employee {
     @Column(name = "Department", length = 100)
     private String department;
 
-    @Column(name = "ExperienceYears", precision = 4, scale = 2)
+    @Column(name = "ExperienceYears")
     private Double experienceYears;
 
     @Column(name = "JoiningDate")
@@ -45,12 +45,12 @@ public class Employee {
     @Column(name = "IsActive")
     private Boolean isActive = true;
 
-//    @OneToMany(mappedBy = "employee")
-//    private List<EmployeeSkill> employeeSkills;
-//
-//    @OneToMany(mappedBy = "employee")
-//    private List<Certification> certifications;
-//
-//    @OneToMany(mappedBy = "employee")
-//    private List<Allocation> allocations;
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private List<EmployeeSkill> employeeSkills;
+
+    @OneToMany(mappedBy = "employee")
+    private List<Certification> certifications;
+
+    @OneToMany(mappedBy = "employee")
+    private List<Allocation> allocations;
 }

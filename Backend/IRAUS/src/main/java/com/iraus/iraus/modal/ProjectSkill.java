@@ -31,6 +31,6 @@ public class ProjectSkill {
     @Column(name = "RequiredLevel", length = 50)
     private String requiredLevel;
 
-    @Column(name = "RequiredExperienceYears", precision = 4, scale = 2)
+    @Column(name = "RequiredExperienceYears")
     private Double requiredExperienceYears;
 }
