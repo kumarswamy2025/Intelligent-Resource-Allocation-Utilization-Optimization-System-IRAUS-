@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepo extends JpaRepository<UserModal,Integer> {
+public interface UserModalRepo extends JpaRepository<UserModal,Integer> {
 
-    UserModal findByEmail(String email);
+
 }
