@@ -21,11 +21,13 @@ public class UserModal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "UserId")
-    private Integer userId;
+    private Integer userId;  // no need to pass because it will automaticaly assigned
+
+
     @Column(name = "Username", nullable = false, unique = true, length = 100)
     private String username;
-    @Column(name = "PasswordHash", nullable = false, length = 255)
-    private String passwordHash;
+    @Column(name = "Password", nullable = false, length = 255)
+    private String password;
     @Column(name = "Email", nullable = false, unique = true, length = 150)
     private String email;
     private String phone;
@@ -35,7 +37,6 @@ public class UserModal {
     private List<Notification> notifications;
 
 //    Note: no need to pass below values by deafuylt it assigned
-
     @Enumerated(EnumType.STRING)
     @Column(name = "Role", nullable = false, length = 20)
     private Role role;  // default no role is assigned

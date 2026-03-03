@@ -8,5 +8,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserModalRepo extends JpaRepository<UserModal,Integer> {
 
+    UserModal findByEmail(String email);
+
+
 
 }

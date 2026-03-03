@@ -1,36 +1,29 @@
-package com.iraus.iraus.payload.DTO;
-
+package com.iraus.iraus.payload.response;
 
 import com.iraus.iraus.domain.Role;
 import com.iraus.iraus.domain.UserStatus;
 import com.iraus.iraus.modal.Employee;
-import com.iraus.iraus.modal.Notification;
-import jakarta.persistence.*;
-import lombok.*;
+import com.iraus.iraus.payload.DTO.UserDTO;
+import lombok.Builder;
+import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
-@Getter
-@Setter
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public class UserDTO {
-
-    private Integer userId;  // no need to pass because it will automaticaly assigned
+public class SignUpResponseDTO {
+    //    jwt tokem
+    private String jwt;
+    //   message
+    private  String message;
+    private Integer userId;
     private String username;
     private String password;
     private String email;
     private String phone;
-    private Employee employee;
-    private List<Notification> notifications;
     private Role role;
     private UserStatus userStatus;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private LocalDateTime lastLogin;
-
-
 }
