@@ -1,10 +1,10 @@
 package com.iraus.iraus.Service.Implementation;
 
-import com.iraus.iraus.Service.Services.UserService;
+import com.iraus.iraus.Service.Services.HrService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class UserServiceImplementation implements UserService {
+public class HrServiceImplementation implements HrService {
 }
