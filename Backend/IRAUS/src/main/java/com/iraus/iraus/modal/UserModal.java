@@ -35,6 +35,13 @@ public class UserModal {
     private Employee employee;
     @OneToMany(mappedBy = "user")
     private List<Notification> notifications;
+//    enable multiple roles
+    private  Boolean ADMIN=false;
+    private  Boolean HR=false;
+    private  Boolean MANAGER=false;
+    private  Boolean EMPLOYEE=false;
+
+
 
 //    Note: no need to pass below values by deafuylt it assigned
     @Enumerated(EnumType.STRING)
