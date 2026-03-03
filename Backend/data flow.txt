@@ -1,0 +1,235 @@
+
+🏁 STEP 1: User Registration / Creation
+
+Controller → Service → Repository → Database
+
+
+1️⃣ Admin creates a user
+
+Data first goes into:
+
+🗂 User Entity
+
+Stores:
+
+username
+
+passwordHash
+
+role (ENUM)
+
+email
+
+Then:
+
+If role = EMPLOYEE / HR / MANAGER
+
+You create:
+
+🗂 Employee Entity
+
+And link it:
+employee.setUser(user);
+
+So DB becomes:
+
+User (login info)
+   ↓
+Employee (business info)
+
+
+
+
+🏁 STEP 2: Employee Adds Skills
+
+
+Employee logs in.
+
+Employee → Adds Skill → EmployeeSkill created
+
+Data flow:
+
+Employee
+   ↓
+EmployeeSkill
+   ↓
+Skill
+
+
+Meaning:
+
+Employee already exists
+
+Skill already exists (Master table)
+
+EmployeeSkill maps them together
+
+
+
+Example:
+
+
+EmployeeId = 10
+SkillId = 3 (Java)
+
+Creates:
+EmployeeSkill row
+
+
+🏁 STEP 3: Manager Creates Project
+
+Manager logs in.
+
+Flow:
+
+Project created
+   ↓
+ProjectSkill added
+
+1️⃣ Project table stores project info
+2️⃣ ProjectSkill stores required skills
+
+
+
+Example:
+
+Project → Banking App
+ProjectSkill → Java (Expert)
+ProjectSkill → SQL (Intermediate)
+
+So structure becomes:
+
+Project
+   ↓
+ProjectSkill
+   ↓
+Skill
+
+
+
+🏁 STEP 4: Smart Allocation Engine Runs
+
+Now important part 🔥
+
+System compares:
+ProjectSkill
+        VS
+EmployeeSkill
+
+Flow:
+
+Project
+   ↓
+ProjectSkill
+         ↘
+          Compare → EmployeeSkill
+                       ↓
+                    Employee
+
+
+Engine calculates:
+
+Skill Match %
+
+Experience relevance
+
+Certification weight
+
+Availability
+
+Then system creates:
+
+🗂 Allocation Entity
+
+EmployeeId
+ProjectId
+AllocatedPercent
+StartDate
+
+Now final structure:
+
+Employee ←→ Allocation ←→ Project
+
+
+🏁 STEP 5: Utilization Calculation
+
+To calculate utilization:
+
+System checks:
+
+Employee
+   ↓
+Allocations
+   ↓
+Sum(AllocatedPercent)
+
+
+🏁 STEP 6: Interview Flow
+
+If internal application:
+
+Employee applies
+   ↓
+Interview entity created
+   ↓
+HR conducts interview
+   ↓
+Status updated
+
+
+🧠 Complete System Data Flow Diagram (Simplified)
+
+
+
+User
+  ↓
+Employee
+  ↓
+EmployeeSkill ←→ Skill
+  ↓
+Allocation ←→ Project ←→ ProjectSkill
+  ↓
+Interview
+  ↓
+Notification
+
+
+🏆 How Data Moves Technically (Spring Boot Layer)
+
+Example when allocation happens:
+
+Controller
+   ↓
+Service (Business Logic)
+   ↓
+Repository (JPA)
+   ↓
+Hibernate
+   ↓
+SQL Query
+   ↓
+Database
+
+And when reading:
+
+Database
+   ↓
+Hibernate
+   ↓
+Entity Objects
+   ↓
+Service
+   ↓
+Controller
+   ↓
+JSON Response
+
+
+
+
+
+
+
+
+
+
